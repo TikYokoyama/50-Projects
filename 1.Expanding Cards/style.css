@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /*viewport 100% para centralizar verticalmente*/
+    overflow: hidden; /*oculta barra de rolagem*/
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: cover; /*imagem 100%, pode ter repeticao*/
+    background-position: center; /*centraliza imagem*/
+    background-repeat: no-repeat; /*tira repeticao de imagem*/
+    height: 80vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5; /*ajustar largura*/
+    margin: 10px; /*espaçamento entre os paineis*/
+    position: relative; /*mantem os h3 dentro dos paineis*/
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0; /*invisivel, apenas quando for clicado*/
+}
+
+/*QUANDO OCORRE CLICK*/
+
+.panel.active{
+    flex: 5;
+
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*RESPONSIVIDADE*/
+
+@media(max-width:480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4), 
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
